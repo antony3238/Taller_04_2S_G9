@@ -1,0 +1,51 @@
+Consultas del postman 
+
+Usuario
+
+Registrar: POST ->   http://localhost:3800/users/registerUser
+ejemplo
+{
+    "registroAcademico": "202200325",
+    "nameU": "Juan",
+    "lastnameU" : "Peres",
+    "email" : "j@perez.gmail",
+    "passwordU" : "juan123"
+}
+
+Login:   POST -> http://localhost:3800/users/login
+ejemplo 
+{
+  "registroAcademico": "202200325",
+  "passwordU":"juan123" 
+}
+
+Modificar Contraseña:   PUT -> http://localhost:3800/users/updatePassword
+ejemplo
+{
+    "emailU": "joe@rodas.com",
+    "passwordU" : "admin1172003" 
+}
+
+Listar Usuarios :  GET   -> http://localhost:3800/users/findAllUsers
+
+Obtener un Usuario: GET   -> http://localhost:3800/users/findOneUser
+ejemplo 
+{
+    "registroAcademico": "202200271"
+}
+
+
+Ver perfil : http://localhost:3800/users/view_profile_users/<Registro Academico>
+    ejemplo: http://localhost:3800/users/view_profile_users/202200271
+
+-Notas: Si el usuario que esta viendo el perfil es su mismo usuario puede modificar 
+EJEMPLO :
+{
+    "nameU" : "JUAN",
+    "lastnameU": "LOPEZ",
+    "email" : "j@lopez.com",
+    "passwordU": "ADMIN123"
+    
+}
+
+	
