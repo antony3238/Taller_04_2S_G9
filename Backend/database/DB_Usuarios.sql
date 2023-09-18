@@ -33,7 +33,7 @@ Create table Comments(
 	foreign key (id_publication) references Publications(id)
 );
 
- -- Creacion de la Tabla de Courses
+-- Creacion de la Tabla de Courses
 Create table Courses(
 	id int auto_increment primary key,
 	user_code varchar(10) not null,
