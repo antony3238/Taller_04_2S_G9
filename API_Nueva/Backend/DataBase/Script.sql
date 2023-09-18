@@ -1,95 +1,84 @@
-
+DROP DATABASE Usuarios;
 Create Database Usuarios;
 Use Usuarios;
 
+ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'tu contraseña';
 
 -- Creacion de la Tabla de Usuarios
-Create table Users(
-	registroAcademico varchar(10) not null,
-    nameU varchar(100) not null,
-    lastnameU varchar(100) not null,
-    email varchar(50) not null,
-    passwordU varchar(50)not null,
-    Primary Key PK_registroAcademico (registroAcademico)
+Create table USUARIO(
+	Carnet BIGINT PRIMARY KEY NOT NULL,
+    Nombre VARCHAR(100),
+    Apellido VARCHAR(100),
+    Correo VARCHAR(50),
+    Contrasena VARCHAR(50)
 );
 
--- Creacion de la Tabla de Publications
-Create table Publications(
-	id int auto_increment primary key,
-	user varchar(250) not null,
-	course varchar(250),   /* Curso */
-    professor varchar(250), /* Catedratico */
-	message text not null,
-	creation_date timestamp default current_timestamp
+ -- Creacion de la Tabla de curos
+Create table CATEDRATICO(
+	idcatedratico INT AUTO_INCREMENT PRIMARY KEY,
+	Nombre  VARCHAR(100)
 );
 
--- Creacion de la Tabla de Comments
-Create table Comments(
-	id int auto_increment primary key,
-	id_publication int not null,
-	user varchar(250) not null,
-	message text not null,
-	creation_date timestamp default current_timestamp,
-	foreign key (id_publication) references Publications(id)
+ -- Creacion de la Tabla de curos
+Create table CURSO(
+	idcurso INT AUTO_INCREMENT PRIMARY KEY,
+	Nombre  VARCHAR(100),
+	Creditos INT
 );
 
- -- Creacion de la Tabla de Courses
-Create table Courses(
-	id int auto_increment primary key,
-	user_code varchar(10) not null,
-	course_name varchar(250) not null,
-	credits decimal(10, 2) not null,
-	foreign key (user_code) references Users(registroAcademico)
+-- Creacion de la Tabla de Publicacion
+Create table PUBLICACION(
+	idpublicacion INT AUTO_INCREMENT PRIMARY KEY,
+	Descripcion VARCHAR(500),
+	Fecha DATE,
+    FK_Catedratico INT,
+    Fk_Usuario BIGINT,
+    Fk_Curso INT,
+    FOREIGN KEY (Fk_Usuario) REFERENCES USUARIO(Carnet),
+    FOREIGN KEY (FK_Catedratico) REFERENCES CATEDRATICO(idcatedratico),
+    FOREIGN KEY (Fk_Curso) REFERENCES CURSO(idcurso)
+);
+
+-- Creacion de la Tabla de comentario
+Create table COMENTARIO(
+	idcomentario INT AUTO_INCREMENT PRIMARY KEY,
+	Fk_idpublicacion INT,
+	Fk_Usuario BIGINT,
+	comentario VARCHAR(500),
+	Fecha DATE,
+	FOREIGN KEY (Fk_Usuario) REFERENCES USUARIO(Carnet),
+    FOREIGN KEY (Fk_idpublicacion) REFERENCES PUBLICACION(idpublicacion)
+);
+
+ -- Creacion de la Tabla de asignacion
+Create table ASIGNACION(
+	idasignacion INT AUTO_INCREMENT PRIMARY KEY,
+	Fecha DATE,
+	Fk_Usuario BIGINT,
+    Fk_Curso INT,
+    FOREIGN KEY (Fk_Usuario) REFERENCES USUARIO(Carnet),
+    FOREIGN KEY (Fk_Curso) REFERENCES CURSO(idcurso)
 );
 
 
--- Creation of Procedures
--- Users
+Insert into USUARIO(Carnet, Nombre, Apellido, Correo, Contrasena)VALUES(201608897, 'Luis', 'Ordonez', 'pedro@gmail.com', '123');
 
--- Create Procedure to register User
-Delimiter $$ 
-Create Procedure sp_registerUser(in par_registroAcademico varchar(10), in parNameU varchar(100), in parLastnameU varchar(100),in parEmail varchar(50), in parPasswordU varchar(50)) -- par -> Parameter
-	Begin
-		Insert into Users(registroAcademico, nameU, lastnameU, email, passwordU)
-			values (par_registroAcademico, parNameU, parLastnameU, parEmail, parPasswordU);
-	End$$
-Delimiter ;
+Insert into CURSO(Nombre, Creditos)VALUES('Logica de sistemas', 2);
+Insert into CURSO(Nombre, Creditos)VALUES('Introduccion a la programacion y computacion 1', 4);
+Insert into CURSO(Nombre, Creditos)VALUES('Lenguajes formales y de programacion', 3);
+Insert into CURSO(Nombre, Creditos)VALUES('Introduccion a la programacion y computacion 2', 5);
+Insert into CURSO(Nombre, Creditos)VALUES('Organizacion computacional', 3);
 
--- Create Procedure to find Users
-Delimiter $$
-Create procedure sp_findUsers()
-	Begin
-		Select * From Users;
-	End$$
-Delimiter ;
+Insert into CATEDRATICO(Nombre)VALUES('Pepito');
 
--- Create Procedure to findOneUser
-Delimiter $$
-Create procedure sp_findOneUser(in par_registroAcademico varchar(10))
-	Begin
-		Select * From Users Where registroAcademico = par_registroAcademico;
-    End$$
-Delimiter ;
+INSERT INTO PUBLICACION(Descripcion, Fecha, FK_Catedratico, Fk_Usuario)VALUES('Prueba 1', DATE_FORMAT(DATE_SUB(now(), INTERVAL 6 HOUR), '%Y-%m-%d'), 1, 201701187);
 
--- Create Procedure to Delete User
-Delimiter $$
-Create procedure sp_dropUserInformation(in par_registroAcademico varchar(10)) -- par -> Parameter
-	Begin
-		Delete from Users Where registroAcademico = par_registroAcademico;
-    End$$
-Delimiter ;
-
--- Create Procedure to Update User
-Delimiter $$
-Create Procedure sp_updateUser(in par_registroAcademico varchar(10), in parPasswordU varchar(50)) -- par -> Parameter
-	Begin
-		Update Users set passwordU = parPasswordU; 
-	End$$
-Delimiter ;
-
--- Call Procedure Register User
-call sp_registerUser('202200271', 'Sergio', 'Rodas', 'joe@rodas.com', 'admin123');
-
-Select * from Users;
-select * from Publications;
+Select * from USUARIO WHERE Carnet != 201701187;
+select * from PUBLICACION;
 select * from Comments;
+INSERT INTO PUBLICACION(Descripcion, Fecha, FK_Catedratico, Fk_Usuario)VALUES('Prueba 1 de publicidad sin curso y catedratico existente', DATE_FORMAT(DATE_SUB(now(), INTERVAL 6 HOUR), '%Y-%m-%d'), 1, 201701187);
+
+UPDATE USUARIO SET Contrasena = '123' WHERE Carnet = 201701187 AND Correo = 'pedro@gmail.com';
+
+DELETE FROM PUBLICACION;
+    SET SQL_SAFE_UPDATES= 0;

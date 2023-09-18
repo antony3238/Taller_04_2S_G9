@@ -158,7 +158,7 @@ const ForgotPassword = async (req, res) => {
                 } else {
                     res.status(400).json({
                         'success': false,
-                        'message': "Ocurrio un error en el server"
+                        'message': "Ocurrio un error verifique Correo y Registro Academico"
                     });
 
                 }

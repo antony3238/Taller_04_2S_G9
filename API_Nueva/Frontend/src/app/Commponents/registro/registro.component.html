@@ -1,0 +1,39 @@
+<section class="vh-100" style="background-color: #508bfc;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              <h3 class="mb-5">Registrarse</h3>
+              <div class="form-outline mb-4">
+                <input type="number" id="typePasswordX-2" class="form-control form-control-lg"  [(ngModel)]="this.Temporal.carne"/>
+                <label class="form-label" for="typePasswordX-2">Registro Academico</label>
+              </div>
+              <div class="form-outline mb-4">
+                <input type="text" id="typeEmailX-2" class="form-control form-control-lg" [(ngModel)]="this.Temporal.nombre"/>
+                <label class="form-label" for="typeEmailX-2">Nombres</label>
+              </div>
+              <div class="form-outline mb-4">
+                <input type="text" id="typeEmailX-2" class="form-control form-control-lg"  [(ngModel)]="this.Temporal.apellido"/>
+                <label class="form-label" for="typeEmailX-2">Apellidos</label>
+              </div>
+              <div class="form-outline mb-4">
+                <input type="password" id="typePasswordX-2" class="form-control form-control-lg"  [(ngModel)]="this.Temporal.pass"/>
+                <label class="form-label" for="typePasswordX-2">Contraseña</label>
+              </div>
+              <div class="form-outline mb-4">
+                <input type="text" id="typeEmailX-2" class="form-control form-control-lg"  [(ngModel)]="this.Temporal.correo"/>
+                <label class="form-label" for="typeEmailX-2">Correo Electronico</label>
+              </div>
+              <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="Registrar()" >Registrarse</button>
+              <hr class="my-4">
+              <div class="text-center">
+                <p>¿Ya tienes cuenta? <a href="login">Iniciar Sesion</a></p>
+              </div>
+           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
