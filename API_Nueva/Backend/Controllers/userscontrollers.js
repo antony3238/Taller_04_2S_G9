@@ -15,7 +15,7 @@ const Login = async (req, res) => {
             } else {
                 res.status(400).json({
                     'success': false,
-                    'message': "El usuario no esta registrado"
+                    'message': "El usuario no esta registrado o la contraseña es incorrecta"
                 });
 
             }

@@ -14,7 +14,6 @@ export class RegistroComponent implements OnInit {
     correo:null,
     pass: null
   }
-
   /*{
     "carne":202201989,
     "nombre":"Maria",
