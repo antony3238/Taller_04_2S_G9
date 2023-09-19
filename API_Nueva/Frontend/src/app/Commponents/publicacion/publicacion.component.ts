@@ -10,10 +10,11 @@ import { ServiceService } from '../../Services/service.service';
 export class PublicacionComponent implements OnInit {
   user: any
   Temporal = {
+    desc:"",
     carne:"",
     cate:"",
     curso:"",
-    desc:""
+    
   }
 
   constructor(private router: Router, private serviceservice: ServiceService) { }
@@ -52,5 +53,6 @@ export class PublicacionComponent implements OnInit {
     console.log('Fecha actual:', fechaFormateada);
 
   }
+  
 
 }
