@@ -10,6 +10,9 @@ import { LoginComponent } from './Commponents/login/login.component';
 import { ContrasenaComponent } from './Commponents/contrasena/contrasena.component';
 import { HomeComponent } from './Commponents/home/home.component';
 import { RegistroComponent } from './Commponents/registro/registro.component';
+import { PublicacionComponent } from './Commponents/publicacion/publicacion.component';
+import { PerfilComponent } from './Commponents/perfil/perfil.component';
+import { CursosaprobadosComponent } from './Commponents/cursosaprobados/cursosaprobados.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { RegistroComponent } from './Commponents/registro/registro.component';
     LoginComponent,
     ContrasenaComponent,
     HomeComponent,
-    RegistroComponent    
+    RegistroComponent,
+    PublicacionComponent,
+    PerfilComponent,
+    CursosaprobadosComponent    
   ],
   imports: [
     BrowserModule,

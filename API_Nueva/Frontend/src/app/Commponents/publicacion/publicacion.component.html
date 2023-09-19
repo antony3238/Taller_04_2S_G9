@@ -1,0 +1,53 @@
+<section class="vh-100" style="background-color: #DAF7A6 ;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="home">Bienvenido</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="publicacion">Crear Publicacion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="perfil">Ver Perfil</a>
+              </li>
+            </ul>
+             </div>
+        </div>
+      </nav>
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <h2 class="mb-4">Publicacion</h2>
+                        <hr class="my-5">
+                        
+                        <div class="form-outline mb-3">
+                            <input type="text" id="form4Example1" class="form-control" placeholder=""[(ngModel)]="this.Temporal.curso"/>
+                            <label for="form4Example1">Curso</label>
+                        </div>
+                        
+                   
+                        <div class="form-outline mb-4">
+                            <input type="email" id="form4Example2" class="form-control"[(ngModel)]="this.Temporal.cate" />
+                            <label class="form-label" for="form4Example2">Catedratico</label>
+                        </div>
+                        <!-- Message input -->
+                        <div class="form-outline mb-4">
+                            <textarea class="form-control" id="form4Example3" rows="4" [(ngModel)]="this.Temporal.desc"></textarea>
+                            <label class="form-label" for="form4Example3">Mensaje</label>
+                        </div>
+                        
+                            <hr class="my-4">
+                        <button type="submit" class="btn btn-success btn-block custom-button">Publicar</button>
+               
+                    </div>
+                </div>
+            </div>
+
+        </div>
+      </div>
+</section>

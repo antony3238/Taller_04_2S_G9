@@ -6,7 +6,9 @@ import {LoginComponent} from './Commponents/login/login.component';
 import {ContrasenaComponent} from './Commponents/contrasena/contrasena.component';
 import {HomeComponent} from './Commponents/home/home.component';
 import {RegistroComponent} from './Commponents/registro/registro.component';
-
+import {PerfilComponent} from './Commponents/perfil/perfil.component'
+import { PublicacionComponent } from './Commponents/publicacion/publicacion.component';
+import { CursosaprobadosComponent } from './Commponents/cursosaprobados/cursosaprobados.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -23,6 +25,18 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegistroComponent
+  },
+  {
+    path: 'perfil',
+    component: PerfilComponent
+  },
+  {
+    path: 'publicacion',
+    component: PublicacionComponent
+  },
+  {
+    path: 'cursosAprobados',
+    component: CursosaprobadosComponent
   },
   {
     path: '',
