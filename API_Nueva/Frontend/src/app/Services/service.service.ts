@@ -23,4 +23,8 @@ export class ServiceService {
     return this.http.post<any>(this.url + '/Grupo9/addUser', objeto);
   }
 
+ /* SListaPublicaciones(objeto: any): Observable<any[]> {
+    return this.http.get<any>(this.url + '/Grupo9/listpublications', objeto);
+  }*/
+
 }
