@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
       //Paso 2: Transformarlo a un objeto
       this.Transformar();
       this.ListaPublicaciones();
+      
     }
 
   }
@@ -59,9 +60,31 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  ListaComentarios(idPublicacion: number) {
+    this.serviceservice.SListaComentario({ publi: idPublicacion }).subscribe(
+      res => {
+        // @ts-ignore
+        const comentarios = Array.from(res.message);
+        console.log(comentarios);
+        // Encuentra la publicación correspondiente por su ID
+        const publicacion = this.datapublicidad.find((objeto: any) => objeto.idpublicacion === idPublicacion);
+  
+        // Asigna los comentarios a la publicación
+        if (publicacion) {
+          publicacion.comentarios = comentarios;
+          publicacion.carne=comentarios[1];
+        }
+      },
+      error => {
+        var temp2: any = error;
+        alert(temp2.message);
+      }
+    );
+  }
   verComentarios(idPublicacion: number) {
     console.log("ID de la publicación seleccionada:", idPublicacion);
     this.Temporal.publi=idPublicacion;
+    this.ListaComentarios(idPublicacion)
   }
   Pcomentario(){
       

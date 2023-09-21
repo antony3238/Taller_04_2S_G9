@@ -61,5 +61,7 @@ export class ServiceService {
   SComentario(objeto: any): Observable<any[]> {
     return this.http.post<any>(this.url + '/Grupo9/addcomment', objeto);
   }
-
+  SListaComentario(objeto: any): Observable<any[]> {
+    return this.http.post<any>(this.url + '/Grupo9/listcomment', objeto);
+  }
 }

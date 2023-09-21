@@ -5,8 +5,8 @@ const addcomment = async (req, res) => {
     const comment = req.body;
     console.log(comment)
     let querycomment = `INSERT INTO COMENTARIO(Fk_idpublicacion,Fk_Usuario,comentario,Fecha) 
-    VALUES(${comment.publi},${comment.carne},${comment.comentario},DATE_FORMAT(DATE_SUB(now(), INTERVAL 6 HOUR), '%Y-%m-%d'))`;
-    Consolé.log(querycomment);
+    VALUES(${comment.publi},${comment.carne},'${comment.comentario}',DATE_FORMAT(DATE_SUB(now(), INTERVAL 6 HOUR), '%Y-%m-%d'))`;
+    console.log(querycomment)
     try {
         await pool.conexion.query(querycomment, async (err, result) => {
             if (result.length != 0) {
@@ -46,11 +46,8 @@ const listcomment = async (req, res) => {
                     'success': false,
                     'message': "Ocurrio un error en el server"
                 });
-
             }
-
         });
-
     } catch (error) {
         res.status(200).json({ 'success': false, 'message': 'Existe un error inesperado ' + error })
     }

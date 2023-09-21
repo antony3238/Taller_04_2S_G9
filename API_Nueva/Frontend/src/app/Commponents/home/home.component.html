@@ -75,6 +75,12 @@
               <small class="align-middle">
                 <strong>Comentarios</strong> </small>
             </a>
+            <div *ngIf="objeto.comentarios">
+              <div *ngFor="let comentario of objeto.comentarios">
+                <p>{{ comentario.Fk_Usuario}}: {{ comentario.comentario }}</p>
+              </div>
+            </div>
+      
           </div>
         </div>
       </div>
