@@ -1,5 +1,5 @@
 <section class="vh-100" style="background-color: #FEE2B2;">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary  ">
         <div class="container-fluid">
           <a class="navbar-brand" href="home">Bienvenido</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,6 +15,7 @@
               </li>
             </ul>
               <input class="form-control custom-input" type="text" placeholder="Registro Academico" aria-label="Curso o catedratico">
+              <button class="btn btn-outline-success mx-2 my-2 my-sm-0" type="submit">Buscar</button>
           </div>
         </div>
       </nav>
@@ -27,9 +28,9 @@
                     style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
                     <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
                       alt="Avatar" class="img-fluid my-5" style="width: 80px;"/>
-                    <h5>Nombre +  Apellido</h5>
+                    <h5>{{this.Temporal.nombre}} {{this.Temporal.apellido}}</h5>
                     <p>Estudiante</p>
-                    <i class="far fa-edit mb-5"></i>
+                    <i class="far fa-edit mb-5 open-modal-button" (click)="openModal()"></i>
                   </div>
                   <div class="col-md-8">
                     <div class="card-body p-4">
@@ -38,11 +39,11 @@
                       <div class="row pt-1">
                         <div class="col-6 mb-3">
                           <h6>Correo</h6>
-                          <p class="text-muted">info@example.com</p>
+                          <p class="text-muted">{{this.Temporal.correo}}</p>
                         </div>
                         <div class="col-6 mb-3">
                           <h6>Registro Academico</h6>
-                          <p class="text-muted">202201989</p>
+                          <p class="text-muted">{{this.Temporal.carne}}</p>
                         </div>
                       </div>
                       <h6>Creditos</h6>
@@ -81,5 +82,39 @@
             </div>
           </div>
         </div>
+
+
+
+        <div id="myModal" name="myModal" class="modal" tabindex="-1" role="dialog"  aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Editar Perfil</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <div class="form-outline mb-4">
+                    <input type="text" id="nombres" class="form-control form-control-lg" [(ngModel)]="Temporal.nombre" />
+                    <label class="form-label" for="nombres">Nombres</label>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input type="text" id="apellidos" class="form-control form-control-lg" [(ngModel)]="Temporal.apellido" />
+                    <label class="form-label" for="apellidos">Apellidos</label>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input type="text" id="correoElectronico" class="form-control form-control-lg" [(ngModel)]="Temporal.correo" />
+                    <label class="form-label" for="correoElectronico">Correo Electrónico</label>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="GuardarCambios()">Guardar Cambios</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
 </section>
 

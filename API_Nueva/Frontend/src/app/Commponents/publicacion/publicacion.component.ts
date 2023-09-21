@@ -93,6 +93,7 @@ export class PublicacionComponent implements OnInit {
           res => {
             var temp2: any = res;
             console.log(temp2.message);
+            this.router.navigate(['/home'])
           },
           error => {
             var temp2: any = error;
@@ -117,6 +118,7 @@ export class PublicacionComponent implements OnInit {
           res => {
             var temp2: any = res;
             console.log(temp2.message);
+            this.router.navigate(['/home'])
 
           },
           error => {
@@ -142,6 +144,7 @@ export class PublicacionComponent implements OnInit {
           res => {
             var temp2: any = res;
             console.log(temp2.message);
+            this.router.navigate(['/home'])
 
           },
           error => {

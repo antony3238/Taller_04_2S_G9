@@ -5,7 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { LoginComponent } from './Commponents/login/login.component';
 import { ContrasenaComponent } from './Commponents/contrasena/contrasena.component';
 import { HomeComponent } from './Commponents/home/home.component';
@@ -29,9 +30,10 @@ import { CursosaprobadosComponent } from './Commponents/cursosaprobados/cursosap
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot(),
   ],
-  providers: [],
+  providers: [BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
