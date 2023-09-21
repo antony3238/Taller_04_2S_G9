@@ -1,12 +1,9 @@
 const pool = require("../DataBase/Database");
 
 const Login = async (req, res) => {
-
     const user = req.body;
-
     try {
         await pool.conexion.query(`SELECT * FROM USUARIO WHERE Carnet = ${user.carne} and Contrasena = '${user.pass}'`, async (err, result) => {
-
             if (result.length != 0) {
                 res.status(200).json({
                     'success': true,
@@ -17,12 +14,8 @@ const Login = async (req, res) => {
                     'success': false,
                     'message': "El usuario no esta registrado o la contraseña es incorrecta"
                 });
-
             }
-
         });
-
-
     } catch (error) {
         res.status(200).json({ 'success': false, 'message': 'Existe un error inesperado ' + error })
     }
