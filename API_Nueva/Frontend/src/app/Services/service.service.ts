@@ -58,6 +58,8 @@ export class ServiceService {
   getUsers(objeto: any): Observable<any[]> {
     return this.http.post<any>(this.url + '/Grupo9/ListUser', objeto);
   }
-
+  SComentario(objeto: any): Observable<any[]> {
+    return this.http.post<any>(this.url + '/Grupo9/addcomment', objeto);
+  }
 
 }

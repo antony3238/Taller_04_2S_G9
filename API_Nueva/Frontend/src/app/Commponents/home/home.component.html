@@ -71,18 +71,17 @@
 
           </div>
           <div class="card-footer">
-            <a href="javascript:void(0)" class="d-inline-block text-muted ml-">
+            <a  class="d-inline-block text-muted ml-" (click)="verComentarios(objeto.idpublicacion)">
               <small class="align-middle">
                 <strong>Comentarios</strong> </small>
             </a>
-            <div class="form-outline mb-4">
-              <input class="form-control custom-input1 " type="text" [(ngModel)]="comentario"placeholder="">
-              <button type="button" class="btn btn-success btn-block custom-button my-2" (click)="Pcomentario()">Publicar</button>
-            </div>
           </div>
         </div>
       </div>
-
+      <div class="form-outline mb-4">
+        <input class="form-control custom-input1 " type="text" [(ngModel)]="this.Temporal.comentario"placeholder="">
+        <button type="button" class="btn btn-success btn-block custom-button my-2" (click)="Pcomentario()">Publicar</button>
+      </div>
     </div>
   </div>
 </section>

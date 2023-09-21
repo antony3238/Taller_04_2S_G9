@@ -15,6 +15,12 @@ export class HomeComponent implements OnInit {
   user: any
   comentario:any
 
+  Temporal={
+    publi:0,
+    carne:0,
+    comentario:""
+  }
+
   ngOnInit() {
 
     //Paso 1: Recuperar la informacion, nos regresa como string
@@ -36,6 +42,7 @@ export class HomeComponent implements OnInit {
     var Datos2: any;
     Datos2 = JSON.parse(this.user);
     console.log(Datos2);
+    this.Temporal.carne=Datos2.Carnet
 
   }
 
@@ -51,8 +58,35 @@ export class HomeComponent implements OnInit {
         alert(temp2.message);
       });
   }
-  Pcomentario(){
 
+  verComentarios(idPublicacion: number) {
+    console.log("ID de la publicación seleccionada:", idPublicacion);
+    this.Temporal.publi=idPublicacion;
+  }
+  Pcomentario(){
+      
+    if (this.Temporal.comentario == "" ) {
+      alert("Agrega tu comentario");
+    } else {
+      
+      try {
+        console.log(this.Temporal)
+        this.serviceservice.SComentario(this.Temporal).subscribe(
+          res => {
+            var temp2: any = res;
+            alert(temp2.message)
+            this.router.navigate(['home']);
+          },
+          error => {
+            var temp2: any = error;
+            alert(temp2.error.message);
+          }
+        );
+      } catch (error) {
+        alert(error);
+      }
+
+    }
 
   }
 

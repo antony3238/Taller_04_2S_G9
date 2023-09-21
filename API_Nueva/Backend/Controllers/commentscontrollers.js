@@ -5,13 +5,13 @@ const addcomment = async (req, res) => {
     const comment = req.body;
     let querycomment = `INSERT INTO COMENTARIO(Fk_idpublicacion,Fk_Usuario,comentario,Fecha) 
     VALUES(${comment.publi},${comment.carne},${comment.comentario},DATE_FORMAT(DATE_SUB(now(), INTERVAL 6 HOUR), '%Y-%m-%d'))`;
-
+    console.log(querycomment)
     try {
         await pool.conexion.query(querycomment, async (err, result) => {
             if (result.length != 0) {
                 res.status(200).json({
                     'success': true,
-                    'message': "Se inserto el comentario corectamente en la DB"
+                    'message': "Comentario"
                 });
             } else {
                 res.status(400).json({
