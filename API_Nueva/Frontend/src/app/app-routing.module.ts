@@ -11,6 +11,7 @@ import { PublicacionComponent } from './Commponents/publicacion/publicacion.comp
 import { CursosaprobadosComponent } from './Commponents/cursosaprobados/cursosaprobados.component';
 import { AgregarCursoComponent } from './Commponents/agregar-curso/agregar-curso.component';
 import {ModificarDatosComponent} from './Commponents/modificar-datos/modificar-datos.component'
+import {VisitarPerfilComponent} from './Commponents/visitar-perfil/visitar-perfil.component'
 const routes: Routes = [
   {
     path: 'login',
@@ -37,10 +38,6 @@ const routes: Routes = [
     component: PublicacionComponent
   },
   {
-    path: 'cursosAprobados',
-    component: CursosaprobadosComponent
-  },
-  {
     path: 'Agregar curso',
     component: AgregarCursoComponent
   },
@@ -48,6 +45,11 @@ const routes: Routes = [
     path: 'Modificar',
     component: ModificarDatosComponent
   },
+  {
+    path:'Vperfil',  
+    component:VisitarPerfilComponent
+  },
+
   {
     path: '',
     redirectTo: '/login',

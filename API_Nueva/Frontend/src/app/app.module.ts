@@ -16,6 +16,7 @@ import { PerfilComponent } from './Commponents/perfil/perfil.component';
 import { CursosaprobadosComponent } from './Commponents/cursosaprobados/cursosaprobados.component';
 import { AgregarCursoComponent } from './Commponents/agregar-curso/agregar-curso.component';
 import { ModificarDatosComponent } from './Commponents/modificar-datos/modificar-datos.component';
+import { VisitarPerfilComponent } from './Commponents/visitar-perfil/visitar-perfil.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ModificarDatosComponent } from './Commponents/modificar-datos/modificar
     PerfilComponent,
     CursosaprobadosComponent,
     AgregarCursoComponent,
-    ModificarDatosComponent    
+    ModificarDatosComponent,
+    VisitarPerfilComponent    
   ],
   imports: [
     BrowserModule,

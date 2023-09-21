@@ -1,1 +1,77 @@
-<p>modificar-datos works!</p>
+<section class="vh-100" style="background-color: #FEE2B2;">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="home">Bienvenido</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="publicacion">Crear Publicacion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="perfil">Mi Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Vperfil">Buscar Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login">Cerrar Sesion</a>
+          </li>
+        </ul>
+     
+      </div>
+    </div>
+  </nav>
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items h-100">
+            <div class="col col-lg-8 mb-4 mb-lg-0">
+              <div class="card mb-3" style="border-radius: .5rem;">
+                <div class="row g-0">
+                  <div class="col-md-4 gradient-custom text-center text-white"
+                    style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                      alt="Avatar" class="img-fluid my-5" style="width: 80px;"/>
+                    <h5></h5>
+                    <p>Estudiante</p>
+                    <button type="button" class="btn btn-success" (click)="Editar()">Guardar</button>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body p-4">
+                      <h6>Informacion Personal - Editar Perfil</h6>
+                      <hr class="mt-0 mb-4">
+                      <div class="row pt-1">
+                        <div class="col-12 mb-3">
+                          <h6>Nombre</h6>
+                          <input type="text" id="typeEmailX-2" class="form-control form-control-lg"  [(ngModel)]="this.Temporal.nombre"/>
+                          <p class="text-muted"></p>
+                        </div>
+                        <div class="col-12 mb-3">
+                          <h6>Apellido</h6>
+                          <input type="text" id="typeEmailX-2" class="form-control form-control-lg"  [(ngModel)]="this.Temporal.apellido"/>
+                          <p class="text-muted"></p>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <h6>Contraseña</h6>
+                            <input type="text" id="typeEmailX-2" class="form-control form-control-lg"  [(ngModel)]="this.Temporal.pass"/>
+                            <p class="text-muted"></p>
+                          </div>
+                      </div>
+                      <div class="row pt-1">
+                        <div class="col-12 mb-3">
+                          <h6>Correo</h6>
+                          <input type="text" id="typeEmailX-2" class="form-control form-control-lg"  [(ngModel)]="this.Temporal.correo"/>
+                          <p class="text-muted"></p>
+                        </div>
+                      </div>
+                      <hr class="mt-0 mb-4">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+

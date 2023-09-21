@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from '../../Services/service.service';
-import { BsModalService,BsModalRef  } from 'ngx-bootstrap/modal';
+
 
 @Component({
   selector: 'app-perfil',
@@ -9,8 +9,8 @@ import { BsModalService,BsModalRef  } from 'ngx-bootstrap/modal';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent {
-  @ViewChild('Editar') Editar: any;
-  constructor(private router: Router, private serviceservice: ServiceService,private modalService: BsModalService) { }
+
+  constructor(private router: Router, private serviceservice: ServiceService) { }
   user: any
 
   Temporal = {
@@ -46,15 +46,6 @@ export class PerfilComponent {
     this.Temporal.apellido = Datos2.Apellido;
     this.Temporal.correo=Datos2.Correo;
   }
-  openModal() {
-    this.modalService.show('Editar');
-  }
-  
-  GuardarCambios() {
-    // Aquí puedes agregar la lógica para guardar los cambios en tu servicio o donde sea necesario.
-    // Por ejemplo, podrías hacer una llamada a tu servicio de actualización de perfil aquí.
-    // Después de guardar, puedes cerrar el modal.
-    this.modalService.hide(1); // Cierra el modal con ID 1 (myModal)
-  }
+
 
 }

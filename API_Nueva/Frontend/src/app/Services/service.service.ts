@@ -38,9 +38,10 @@ export class ServiceService {
   SRegistrarPubli(objeto: any): Observable<any[]> {
     return this.http.post<any>(this.url + '/Grupo9/addpublication', objeto);
   }
+  Seditar(objeto: any): Observable<any[]> {
+    return this.http.post<any>(this.url + '/Grupo9/updateUser', objeto);
+  }
   
- /* SListaPublicaciones(objeto: any): Observable<any[]> {
-    return this.http.get<any>(this.url + '/Grupo9/listpublications', objeto);
-  }*/
+
 
 }
