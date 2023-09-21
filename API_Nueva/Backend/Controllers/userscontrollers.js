@@ -123,7 +123,7 @@ const ListUser = async (req, res) => {
             if (result.length != 0) {
                 res.status(200).json({
                     'success': true,
-                    'message': result[0]
+                    'message': result
                 });
             } else {
                 res.status(400).json({
