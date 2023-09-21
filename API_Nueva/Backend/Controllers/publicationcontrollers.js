@@ -136,7 +136,10 @@ GuardarCate = async (nombre) => {
 const listpublications = async (req, res) => {
 
     try {
-        await pool.conexion.query(`SELECT * FROM PUBLICACION`, async (err, result) => {
+        await pool.conexion.query(`select P.idpublicacion, P.Descripcion, P.fecha, U.Nombre, C.Nombre AS 'Catedratico', CU.Nombre AS 'Curso' from PUBLICACION AS P
+        INNER JOIN USUARIO AS U ON P.Fk_Usuario = U.Carnet
+        LEFT JOIN CATEDRATICO AS C ON P.FK_Catedratico = C.idcatedratico
+        LEFT JOIN CURSO AS CU ON P.Fk_Curso = CU.idcurso`, async (err, result) => {
             if (result.length != 0) {
                 res.status(200).json({
                     'success': true,

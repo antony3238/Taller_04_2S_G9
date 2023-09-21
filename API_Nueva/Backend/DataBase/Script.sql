@@ -2,7 +2,7 @@ DROP DATABASE Usuarios;
 Create Database Usuarios;
 Use Usuarios;
 
-ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'tu contraseña';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'Vale0401*';
 
 -- Creacion de la Tabla de Usuarios
 Create table USUARIO(

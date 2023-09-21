@@ -2,7 +2,8 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="home">Bienvenido</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -14,7 +15,7 @@
                 <a class="nav-link" href="perfil">Ver Perfil</a>
               </li>
             </ul>
-             </div>
+          </div>
         </div>
       </nav>
       <div class="container py-5 h-100">
@@ -26,24 +27,30 @@
                         <hr class="my-5">
                         
                         <div class="form-outline mb-3">
-                            <input type="text" id="form4Example1" class="form-control" placeholder=""[(ngModel)]="this.Temporal.curso"/>
-                            <label for="form4Example1">Curso</label>
+                          <input class="form-control" type="text" list="inputGroupSelect03" [(ngModel)]="NombreCurso"
+                            [ngModelOptions]="{standalone: true}">
+                          <datalist id="inputGroupSelect03">
+                            <option [ngValue]="objeto.idcurso" *ngFor="let objeto of datacuros">{{objeto.Nombre}}</option>
+                          </datalist>
                         </div>
                         
-                   
                         <div class="form-outline mb-4">
-                            <input type="email" id="form4Example2" class="form-control"[(ngModel)]="this.Temporal.cate" />
-                            <label class="form-label" for="form4Example2">Catedratico</label>
+                          <input class="form-control" type="text" list="inputGroupSelect02" [(ngModel)]="NombreCate"
+                            [ngModelOptions]="{standalone: true}">
+                          <datalist id="inputGroupSelect02">
+                            <option [ngValue]="objeto2.idcatedratico" *ngFor="let objeto2 of datacate">{{objeto2.Nombre}}</option>
+                          </datalist>
                         </div>
+
                         <!-- Message input -->
                         <div class="form-outline mb-4">
-                            <textarea class="form-control" id="form4Example3" rows="4" [(ngModel)]="this.Temporal.desc"></textarea>
-                            <label class="form-label" for="form4Example3">Mensaje</label>
+                          <textarea class="form-control" id="form4Example3" rows="4" [(ngModel)]="Desc"></textarea>
+                          <label class="form-label" for="form4Example3">Mensaje</label>
                         </div>
-                        
-                            <hr class="my-4">
-                        <button type="submit" class="btn btn-success btn-block custom-button">Publicar</button>
-               
+
+                        <hr class="my-4">
+                        <button type="submit" class="btn btn-success btn-block custom-button" (click)="IngresarPublicacion()">Publicar</button>
+
                     </div>
                 </div>
             </div>

@@ -23,6 +23,22 @@ export class ServiceService {
     return this.http.post<any>(this.url + '/Grupo9/addUser', objeto);
   }
 
+  getPublicaciones(): Observable<any[]> {
+    return this.http.get<any>(this.url + '/Grupo9/listpublications');
+  }
+
+  getCatedraticos(): Observable<any[]> {
+    return this.http.get<any>(this.url + '/Grupo9/Listcate');
+  }
+
+  getCursos(): Observable<any[]> {
+    return this.http.get<any>(this.url + '/Grupo9/Listcourses');
+  }
+
+  SRegistrarPubli(objeto: any): Observable<any[]> {
+    return this.http.post<any>(this.url + '/Grupo9/addpublication', objeto);
+  }
+  
  /* SListaPublicaciones(objeto: any): Observable<any[]> {
     return this.http.get<any>(this.url + '/Grupo9/listpublications', objeto);
   }*/

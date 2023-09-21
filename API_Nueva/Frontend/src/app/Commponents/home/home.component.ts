@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServiceService } from '../../Services/service.service';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +9,9 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
-  
+  constructor(private router: Router, private serviceservice: ServiceService) { }
+
+  datapublicidad:any = [];
   user: any
 
   ngOnInit() {
@@ -23,7 +25,7 @@ export class HomeComponent implements OnInit {
     } else {
       //Paso 2: Transformarlo a un objeto
       this.Transformar();
-
+      this.ListaPublicaciones();
     }
 
   }
@@ -34,6 +36,19 @@ export class HomeComponent implements OnInit {
     Datos2 = JSON.parse(this.user);
     console.log(Datos2);
 
+  }
+
+  ListaPublicaciones() {
+    this.serviceservice.getPublicaciones().subscribe(
+      res => {
+        // @ts-ignore
+        this.datapublicidad = Array.from(res.message);
+        console.log(this.datapublicidad);
+      },
+      error => {
+        var temp2: any = error;
+        alert(temp2.message);
+      });
   }
 
 }
