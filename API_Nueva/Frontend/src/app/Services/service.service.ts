@@ -42,6 +42,22 @@ export class ServiceService {
     return this.http.post<any>(this.url + '/Grupo9/updateUser', objeto);
   }
   
+  
+  SAsignar(objeto: any): Observable<any[]> {
+    return this.http.post<any>(this.url + '/Grupo9/addCurso', objeto);
+  }
+
+  SMycourse(objeto: any): Observable<any[]> {
+    return this.http.post<any>(this.url + '/Grupo9/MyCourses', objeto);
+  }
+
+  STotalCreditos(objeto: any): Observable<any[]> {
+    return this.http.post<any>(this.url + '/Grupo9/TotalCreditos', objeto);
+  }
+
+  getUsers(objeto: any): Observable<any[]> {
+    return this.http.post<any>(this.url + '/Grupo9/ListUser', objeto);
+  }
 
 
 }

@@ -14,7 +14,7 @@
             <a class="nav-link" href="perfil">Mi Perfil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Vperfil">Buscar Perfil</a>
+            <a class="nav-link" href="BuscarUsuarios">Buscar Perfil</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="login">Cerrar Sesion</a>
@@ -33,8 +33,8 @@
                     style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
                     <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
                       alt="Avatar" class="img-fluid my-5" style="width: 80px;"/>
-                    <h5>{{Temporal.nombre}} {{Temporal.apellido}}</h5>
-                    <p>Estudiante</p>
+                      <h5>{{Datos2.Nombre}} {{Datos2.Apellido}}</h5>
+                      <p>Estudiante</p>
                     
                     <a href="Modificar"><i class="far fa-edit mb-5 " href="Modificar"></i>
                     </a>
@@ -47,11 +47,11 @@
                       <div class="row pt-1">
                         <div class="col-6 mb-3">
                           <h6>Correo</h6>
-                          <p class="text-muted">{{Temporal.correo}}</p>
+                          <p class="text-muted">{{Datos2.Correo}}</p>
                         </div>
                         <div class="col-6 mb-3">
                           <h6>Registro Academico</h6>
-                          <p class="text-muted">{{Temporal.carne}}</p>
+                          <p class="text-muted">{{Datos2.Carnet}}</p>
                         </div>
                       </div>
                       <h6>Creditos</h6>
@@ -59,7 +59,10 @@
                       <div class="row pt-1">
                         <div class="col-6 mb-3">
                           <h6>Creditos Aprobados</h6>
-                          <p class="text-muted">Total</p>
+                          <p class="text-muted">{{Total.Total}}</p>
+                        </div>
+                        <div class="col-6 mb-3">
+                          <a type="button" class="btn btn-warning" href="AgregarCurso">Agregar Curso</a>
                         </div>
                       </div>
                     </div>
@@ -69,32 +72,20 @@
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
+                  
                     <th scope="col">Cursos Aprobado</th>
                     <th scope="col">Credito</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Logica y Sistemas</td>
-                    <td>3</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Matematica Basica 1</td>
-                    <td>9</td>
+                  <tr *ngFor = "let objeto of ListaMisCursos">
+                    <td>{{objeto.Nombre}}</td>
+                    <td>{{objeto.Credito}}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
         </div>
-
-
-
-    
-        
-
 </section>
 

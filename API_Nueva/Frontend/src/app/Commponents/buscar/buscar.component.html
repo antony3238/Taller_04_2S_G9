@@ -22,8 +22,23 @@
                         <a class="nav-link" href="login">Cerrar sesion</a>
                       </li>
                 </ul>
-                <input class="form-control custom-input" type="text" placeholder="Registro Academico"
-                    aria-label="Curso o catedratico">
+                <div class="form-outline mb-1">
+                    <div class="row pt-1">
+                        <div class="col-3 mb-1">
+                            <button type="button" class="btn btn-success" (click)="BuscarES()">Buscar</button>
+                        </div>
+                        <div class="col-9 mb-2">
+                            <input class="form-control" type="text" list="inputGroupSelect03" [(ngModel)]="Estudiante"
+                                [ngModelOptions]="{standalone: true}">
+                            <datalist id="inputGroupSelect03">
+                                <option [ngValue]="objeto.idcurso" *ngFor="let objeto of ListaEstudiantes">
+                                    {{objeto.Carnet}}</option>
+                            </datalist>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
         </div>
     </nav>
@@ -36,9 +51,8 @@
                             style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
                                 alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-                            <h5>{{Datos2.Nombre}} {{Datos2.Apellido}}</h5>
+                            <h5>{{Nombre}} {{Apellido}}</h5>
                             <p>Estudiante</p>
-                            <i class="far fa-edit mb-5"></i>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body p-4">
@@ -47,11 +61,11 @@
                                 <div class="row pt-1">
                                     <div class="col-6 mb-3">
                                         <h6>Correo</h6>
-                                        <p class="text-muted">{{Datos2.Correo}}</p>
+                                        <p class="text-muted">{{Correo}}</p>
                                     </div>
                                     <div class="col-6 mb-3">
                                         <h6>Registro Academico</h6>
-                                        <p class="text-muted">{{Datos2.Carnet}}</p>
+                                        <p class="text-muted">{{Carnet}}</p>
                                     </div>
                                 </div>
                                 <h6>Creditos</h6>
@@ -59,26 +73,14 @@
                                 <div class="row pt-1">
                                     <div class="col-6 mb-3">
                                         <h6>Creditos Aprobados</h6>
-                                        <p class="text-muted">Total</p>
+                                        <p class="text-muted">{{Total.Total}}</p>
                                     </div>
-                                    <div class="col-6 mb-3">
-                                        <a type="button" class="btn btn-danger" href="perfil">Regresar</a>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="form-outline mb-3">
-                    <h6>Listado de cursos</h6>
-                    <input class="form-control" type="text" list="inputGroupSelect03" [(ngModel)]="NombreCurso"
-                      [ngModelOptions]="{standalone: true}">
-                    <datalist id="inputGroupSelect03">
-                      <option [ngValue]="objeto.idcurso" *ngFor="let objeto of datacuros">{{objeto.Nombre}}</option>
-                    </datalist>
-                    <br>
-                    <button type="button" class="btn btn-success" (click)="Asignar()">Asignar</button>
-                  </div>
             </div>
         </div>
     </div>

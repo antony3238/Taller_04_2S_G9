@@ -11,15 +11,14 @@ import { ServiceService } from '../../Services/service.service';
 export class PerfilComponent {
 
   constructor(private router: Router, private serviceservice: ServiceService) { }
+  Total: any;
+  ListaMisCursos: any = [];
   user: any
 
   Temporal = {
-    carne: 0,
-    nombre:null,
-    apellido:null,
-    correo:null,
-    pass: null
+    carne: 0
   }
+  Datos2: any;
   
   ngOnInit() {
     
@@ -32,20 +31,53 @@ export class PerfilComponent {
     } else {
       //Paso 2: Transformarlo a un objeto
       this.Transformar();
+      this.MisCursos();
+      this.TotalCredits();
     }
 
   }
   
   Transformar() {
 
-    var Datos2: any;
-    Datos2 = JSON.parse(this.user);
-    console.log(Datos2);
-    this.Temporal.carne = Datos2.Carnet;
-    this.Temporal.nombre = Datos2.Nombre;
-    this.Temporal.apellido = Datos2.Apellido;
-    this.Temporal.correo=Datos2.Correo;
-  }
+    this.Datos2 = JSON.parse(this.user);
+    console.log(this.Datos2);
+    this.Temporal.carne = this.Datos2.Carnet;
+}
+    MisCursos() {
 
+      try {
+        this.serviceservice.SMycourse(this.Temporal).subscribe(
+          res => {
+            // @ts-ignore
+            this.ListaMisCursos = Array.from(res.message);
+            console.log(this.ListaMisCursos);
+          },
+          error => {
+            //var temp2: any = error;
+            //alert(temp2.message);
+          });
+      } catch (error) {
+        alert(error);
+      }
 
+    }
+
+    TotalCredits() {
+
+      try {
+        this.serviceservice.STotalCreditos(this.Temporal).subscribe(
+          res => {
+            // @ts-ignore
+            this.Total = res.message;
+            console.log(this.Total);
+          },
+          error => {
+            var temp2: any = error;
+            alert(temp2.message);
+          });
+      } catch (error) {
+        alert(error);
+      }
+
+    }
 }

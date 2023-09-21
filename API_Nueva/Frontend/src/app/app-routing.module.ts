@@ -8,10 +8,10 @@ import {HomeComponent} from './Commponents/home/home.component';
 import {RegistroComponent} from './Commponents/registro/registro.component';
 import {PerfilComponent} from './Commponents/perfil/perfil.component'
 import { PublicacionComponent } from './Commponents/publicacion/publicacion.component';
-import { CursosaprobadosComponent } from './Commponents/cursosaprobados/cursosaprobados.component';
 import { AgregarCursoComponent } from './Commponents/agregar-curso/agregar-curso.component';
 import {ModificarDatosComponent} from './Commponents/modificar-datos/modificar-datos.component'
-import {VisitarPerfilComponent} from './Commponents/visitar-perfil/visitar-perfil.component'
+import { BuscarComponent } from './Commponents/buscar/buscar.component';
+
 const routes: Routes = [
   {
     path: 'login',
@@ -38,7 +38,7 @@ const routes: Routes = [
     component: PublicacionComponent
   },
   {
-    path: 'Agregar curso',
+    path: 'AgregarCurso',
     component: AgregarCursoComponent
   },
   {
@@ -46,10 +46,9 @@ const routes: Routes = [
     component: ModificarDatosComponent
   },
   {
-    path:'Vperfil',  
-    component:VisitarPerfilComponent
+    path: 'BuscarUsuarios',
+    component: BuscarComponent
   },
-
   {
     path: '',
     redirectTo: '/login',
