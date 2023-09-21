@@ -130,7 +130,6 @@ const ListUser = async (req, res) => {
                     'success': false,
                     'message': "Ocurrio un error en el server"
                 });
-
             }
 
         });
