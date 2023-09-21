@@ -9,6 +9,8 @@ import {RegistroComponent} from './Commponents/registro/registro.component';
 import {PerfilComponent} from './Commponents/perfil/perfil.component'
 import { PublicacionComponent } from './Commponents/publicacion/publicacion.component';
 import { CursosaprobadosComponent } from './Commponents/cursosaprobados/cursosaprobados.component';
+import { AgregarCursoComponent } from './Commponents/agregar-curso/agregar-curso.component';
+import {ModificarDatosComponent} from './Commponents/modificar-datos/modificar-datos.component'
 const routes: Routes = [
   {
     path: 'login',
@@ -37,6 +39,14 @@ const routes: Routes = [
   {
     path: 'cursosAprobados',
     component: CursosaprobadosComponent
+  },
+  {
+    path: 'Agregar curso',
+    component: AgregarCursoComponent
+  },
+  {
+    path: 'Modificar',
+    component: ModificarDatosComponent
   },
   {
     path: '',

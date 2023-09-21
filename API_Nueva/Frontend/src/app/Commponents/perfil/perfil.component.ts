@@ -9,7 +9,7 @@ import { BsModalService,BsModalRef  } from 'ngx-bootstrap/modal';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent {
-  @ViewChild('myModal') myModal: any;
+  @ViewChild('Editar') Editar: any;
   constructor(private router: Router, private serviceservice: ServiceService,private modalService: BsModalService) { }
   user: any
 
@@ -20,6 +20,7 @@ export class PerfilComponent {
     correo:null,
     pass: null
   }
+  
   ngOnInit() {
     
     //Paso 1: Recuperar la informacion, nos regresa como string
@@ -46,7 +47,7 @@ export class PerfilComponent {
     this.Temporal.correo=Datos2.Correo;
   }
   openModal() {
-    this.modalService.show('myModal');
+    this.modalService.show('Editar');
   }
   
   GuardarCambios() {
