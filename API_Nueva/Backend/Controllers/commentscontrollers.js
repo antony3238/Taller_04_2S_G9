@@ -3,9 +3,10 @@ const pool = require("../DataBase/Database");
 const addcomment = async (req, res) => {
 
     const comment = req.body;
+    console.log(comment)
     let querycomment = `INSERT INTO COMENTARIO(Fk_idpublicacion,Fk_Usuario,comentario,Fecha) 
     VALUES(${comment.publi},${comment.carne},${comment.comentario},DATE_FORMAT(DATE_SUB(now(), INTERVAL 6 HOUR), '%Y-%m-%d'))`;
-    console.log(querycomment)
+    Consolé.log(querycomment);
     try {
         await pool.conexion.query(querycomment, async (err, result) => {
             if (result.length != 0) {
