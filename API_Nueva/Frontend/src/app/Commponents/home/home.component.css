@@ -51,4 +51,11 @@ body {
     padding: 10px 15px; /* Padding personalizado */
     width: 330px; /* Ancho personalizado */
 }
-
+.custom-button {
+    width: 100%; /* Establece el ancho al 100% del contenedor */
+}
+.custom-input1 {
+    font-size: 16px; /* Tamaño de fuente personalizado */
+    padding: 10px 15px; /* Padding personalizado */
+    width: 100%; /* Ancho personalizado */
+}

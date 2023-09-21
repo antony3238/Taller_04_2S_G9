@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   datapublicidad:any = [];
   user: any
+  comentario:any
 
   ngOnInit() {
 
@@ -49,6 +50,10 @@ export class HomeComponent implements OnInit {
         var temp2: any = error;
         alert(temp2.message);
       });
+  }
+  Pcomentario(){
+
+
   }
 
 }
